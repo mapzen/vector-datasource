@@ -169,6 +169,8 @@ def parse_mul(ast_state, orig):
 def ast_value(ast_state, val):
     if isinstance(val, str):
         return ast.Str(val)
+    elif isinstance(val, unicode):
+        return ast.Str(val.encode('utf8'))
     elif isinstance(val, dict):
         if val.keys() == ['col']:
             return ast_column(ast_state, val['col'])

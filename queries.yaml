@@ -898,7 +898,7 @@ post_process:
       source_layer: landuse
       start_zoom: 4
       end_zoom: 13
-      properties: [name, sport, religion, surface]
+      properties: [name, sport, religion, surface, crop]
       where: >-
         pixel_area > area
       geom_types: [Polygon, MultiPolygon]

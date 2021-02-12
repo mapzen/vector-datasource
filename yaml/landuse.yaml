@@ -32,7 +32,51 @@ global:
         args:
           - {col: building}
           - {col: "building:part"}
-
+  - &crop_kind_detail
+    kind_detail:
+      case:
+        - when:
+            crop:
+              - rice
+              - grape
+              - grass
+              - corn
+              - cereal
+              - tea
+              - hop
+              - sugarcane
+              - market_gardening
+              - field_cropland
+              - wheat
+              - soy
+              - forage
+              - barley
+              - vegetable
+              - rape
+              - native_pasture
+              - fast_growing_wood
+              - coffee
+              - lavender
+              - beet
+              - cotton
+              - tobacco
+              - sugar_beet
+              - sunflower
+              - hay
+              - betel
+          then: {col: crop}
+        - when:
+            crop: 'cana-de-açúcar'
+          then: sugarcane
+        - when:
+            crop: 'vegetables'
+          then: vegetable
+        - when:
+            crop: 'cana-de-açucar'
+          then: sugarcane
+        - when:
+            crop: 'maize'
+          then: corn
   - &tier1_min_zoom
     lookup:
       key: { col: way_area }
@@ -575,6 +619,7 @@ filters:
       <<: *output_properties
       kind: farmland
       tier: 2
+      <<: *crop_kind_detail
 
   ############################################################
   # NO TIER
