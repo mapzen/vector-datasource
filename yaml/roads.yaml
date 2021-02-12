@@ -27,6 +27,7 @@ global:
       motor_vehicle: {col: motor_vehicle}
       access: {col: access}
       bicycle: {col: bicycle}
+      man_made: {col: man_made}
       hgv:
         case:
           - when: {hgv: [agricultural, delivery, designated, destination, local, 'no']}
