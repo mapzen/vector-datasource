@@ -1020,5 +1020,8 @@
 - {$layer: 'pois', kind: 'waste_basket'}
 - {$layer: 'pois', kind: 'water_point'}
 - {$layer: 'pois', kind: 'watering_place'}
+# for contours
+- _reserved: {count: 10}
+- {$layer: 'contours', kind: 'contour'}
 # catch-all, assign lowest priority
 - { $layer: true }

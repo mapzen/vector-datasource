@@ -3,6 +3,7 @@ argparse==1.4.0
 ASTFormatter==0.6.4
 boto==2.49.0
 edtf==2.6.0
+fiona==1.8.6
 future==0.16.0
 gunicorn==19.9.0
 hiredis==0.2.0

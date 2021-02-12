@@ -148,6 +148,10 @@ sources:
     - template: buffered_land.jinja2
       start_zoom: 8
 
+  contours:
+    - template: contours.jinja2
+      start_zoom: 13
+
 layers:
   water:
     geometry_types: [Point, MultiPoint, Polygon, MultiPolygon, LineString, MultiLineString]
@@ -326,6 +330,15 @@ layers:
       - vectordatasource.transform.add_id_to_properties
       - vectordatasource.transform.remove_feature_id
     area-inclusion-threshold: 1
+  contours:
+    geometry_types: [LineString, MultiLineString]
+    simplify_start: 999
+    tolerance: 2.0
+    transform:
+      - vectordatasource.transform.tags_create_dict
+      - vectordatasource.transform.tags_name_i18n
+      - vectordatasource.transform.tags_remove
+    area-inclusion-threshold: 1
 post_process:
   - fn: vectordatasource.transform.build_fence
     params:
@@ -479,6 +492,15 @@ post_process:
         path: spreadsheets/sort_rank/transit.csv
     params:
       source_layer: transit
+      target_value_type: int
+  - fn: vectordatasource.transform.csv_match_properties
+    resources:
+      matcher:
+        type: file
+        init_fn: vectordatasource.transform.CSVMatcher
+        path: spreadsheets/sort_rank/contours.csv
+    params:
+      source_layer: contours
       target_value_type: int
   # this needs to run before the water sort_rank csv matcher
   - fn: vectordatasource.transform.exterior_boundaries

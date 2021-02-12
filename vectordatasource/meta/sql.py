@@ -49,6 +49,9 @@ LAYER_TABLES = {
         'ne_10m_roads',
         'planet_osm_line',
     ],
+    'contours': [
+        'contours',
+    ],
     'transit': [
         'planet_osm_line',
         'planet_osm_polygon',
@@ -683,6 +686,8 @@ def table_is_polygonal(name):
 def calculate_meta_source_for_table(name):
     if table_is_osm(name) or name == 'admin_areas':
         return 'osm'
+    elif name == 'contours':
+        return 'vfp'
     elif name.startswith('ne_'):
         return 'ne'
     elif name.startswith('wof_'):

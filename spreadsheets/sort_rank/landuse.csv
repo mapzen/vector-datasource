@@ -11,11 +11,11 @@ retaining_wall,*,266
 dam,LineString;MultiLineString,265
 tree_row,*,264
 hedge,*,263
-bridge,*,229
-pier,*,228
-dike,*,227
-cutline,*,226
-groyne,*,225
+bridge,*,230
+pier,*,229
+dike,*,228
+cutline,*,227
+groyne,*,226
 breakwater,*,224
 dam,*,223
 land,*,222

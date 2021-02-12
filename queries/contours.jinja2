@@ -1,0 +1,30 @@
+SELECT
+
+  osm_id AS __id__,
+
+  {% filter geometry %}{{ bounds['line']|bbox_intersection('way') }}{% endfilter %} AS __geometry__,
+
+  -- common properties across all layers
+  jsonb_build_object(
+    'source', 'viewfinderpanoramas.org',
+    'min_zoom', 13,
+    'ele', ele
+  ) AS __contours_properties__
+
+FROM (
+
+  SELECT
+
+    osm_id,
+    ele,
+    way
+
+  FROM 
+
+    contours
+
+  WHERE
+
+    {{ bounds['line']|bbox_filter('way', 3857) }}
+
+) p

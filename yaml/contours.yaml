@@ -1,0 +1,16 @@
+global:
+  - &output_properties
+    source: {col: source}
+    min_zoom: {col: min_zoom}
+    # Elevation of the contour in meters.
+    elevation: {col: ele}
+
+filters:
+  - filter:
+      geom_type: line
+    min_zoom: 13
+    table: vfp
+    output:
+      <<: *output_properties
+      kind: contour
+

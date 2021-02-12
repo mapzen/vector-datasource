@@ -82,12 +82,12 @@ class CallFuncTest(unittest.TestCase):
         cls.layer_data, cls.by_name = make_layer_data_props()
 
     def test_layer_data_count(self):
-        self.assertEquals(10, len(self.layer_data))
+        self.assertEquals(11, len(self.layer_data))
 
     def test_layer_names(self):
         exp_layers = set(('landuse', 'pois', 'transit', 'water', 'places',
                           'boundaries', 'buildings', 'roads', 'earth',
-                          'admin_areas'))
+                          'admin_areas', 'contours'))
         self.assertEquals(exp_layers, set(self.by_name.keys()))
 
     def test_layers_called_empty_feature(self):
