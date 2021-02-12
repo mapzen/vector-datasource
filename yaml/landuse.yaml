@@ -1253,6 +1253,14 @@ filters:
       kind: dam
     extra_columns: [way]
   - filter:
+      waterway: weir
+      geom_type: line
+    min_zoom: 12
+    output:
+      <<: *output_properties
+      kind: weir
+    extra_columns: [way]
+  - filter:
       waterway: dam
       geom_type: polygon
     min_zoom: { clamp: { max: 16, min: 11, value: { col: zoom } } }
