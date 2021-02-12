@@ -891,14 +891,22 @@ filters:
       <<: *output_properties
       kind: groyne
       tier: 4
-  # dike
+  # dyke
   - filter:
-      man_made: dike
-      geom_type: polygon
+      man_made: dyke
+      geom_type: line
     min_zoom: { max: [ 13, *tier4_min_zoom ] }
     output:
       <<: *output_properties
-      kind: dike
+      kind: dyke
+      tier: 4
+  - filter:
+      man_made: dyke
+      geom_type: polygon
+    min_zoom: { clamp: { max: 16, min: 13, value: { col: zoom } } }
+    output:
+      <<: *output_properties
+      kind: dyke
       tier: 4
   # cutline
   - filter:

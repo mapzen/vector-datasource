@@ -516,7 +516,7 @@ _TIP: Some `landuse` features only exist as point features in OpenStreetMap. Fin
 * `dam` - polygon, line
 * `danger_area` - e.g: military training zones, firing ranges.
 * `desert`
-* `dike`
+* `dyke`
 * `ditch` line.
 * `dog_park`
 * `embankment` - A raised area of land, usually to carry a road or railway.

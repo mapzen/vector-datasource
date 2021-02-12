@@ -676,7 +676,7 @@
 - {$layer: 'landuse', kind: 'land'}
 - {$layer: 'landuse', kind: 'dam'}
 - {$layer: 'landuse', kind: 'groyne'}
-- {$layer: 'landuse', kind: 'dike'}
+- {$layer: 'landuse', kind: 'dyke'}
 - {$layer: 'landuse', kind: 'pier'}
 - {$layer: 'landuse', kind: 'bridge'}
 - {$layer: 'pois', kind: 'stop_area'}

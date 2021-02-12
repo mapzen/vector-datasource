@@ -286,8 +286,8 @@ class DemoteEarlyLandcover(FixtureTest):
     def test_aviary(self):
         self._check_min_zoom({'zoo': 'aviary'}, 'aviary', 13)
 
-    def test_dike(self):
-        self._check_min_zoom({'man_made': 'dike'}, 'dike', 13)
+    def test_dyke(self):
+        self._check_min_zoom({'man_made': 'dyke'}, 'dyke', 13)
 
     def test_summer_toboggan(self):
         self._check_min_zoom({'attraction': 'summer_toboggan'},

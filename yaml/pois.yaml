@@ -925,7 +925,7 @@ filters:
       denomination: { col: denomination }
   # commercial - no POI
   # cutline - no POI
-  # dike - no POI
+  # dyke - no POI
   # generator
   - filter: {power: generator}
     min_zoom: { max: [15, *tier4_min_zoom ] }
