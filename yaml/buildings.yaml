@@ -19,7 +19,9 @@ globals:
       building_levels: {col: "building:levels"}
       building_min_levels: {col: "building:min_levels"}
       building_material: {col: "building:material"}
+      castle_type: {col: castle_type}
       height: {col: height}
+      historic: {col: historic}
       min_height: {col: min_height}
       layer: {col: layer}
       location: {col: location}
