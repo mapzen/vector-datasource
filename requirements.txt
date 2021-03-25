@@ -14,7 +14,7 @@ psycopg2==2.7.3.2
 pyclipper==1.0.6
 pycountry==17.9.23
 python-dateutil==2.6.1
-PyYAML==4.2b4
+PyYAML==5.4
 redis==2.10.6
 setuptools<=44.1.1 ## Last version to support py2
 Shapely==1.6.2.post1
