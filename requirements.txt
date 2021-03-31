@@ -6,7 +6,7 @@ edtf==2.6.0
 future==0.16.0
 gunicorn==19.9.0
 hiredis==0.2.0
-lxml==4.6.2
+lxml==4.6.3
 mapbox-vector-tile==1.2.0
 ModestMaps==1.4.7
 protobuf==3.4.0
