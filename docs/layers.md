@@ -1424,6 +1424,7 @@ To improve performance, some road segments are merged at low and mid-zooms. To f
 * `embankment`: If the road or railway is on an embankment the value will be one of `yes`, `left` or `right` depending on whether the embankment is on both sides, the left side or the right side, respectively.
 * `hgv`: optional property indicating general truck heavy goods vehicle truck access. See below for list of values.
 * `hgv_restriction`: optional property indicating limitations to heavy goods vehicle truck access. See below for list of values. Available on both point and line geometries. See also `hgv_restriction_shield_text`.
+* `hgv_time_restrictions` - optional property specifying when heavy goods vehicle truck access is restricted. See the `hgv_time_restrictions` values list below.
 * `hgv_restriction_shield_text`: optional and paired with `hgv_restriction` points with values like `5.1m`. Because the units are different per restriction an abbreviation should be provided. Values in meters can be specified with one decimal precision but value of 5.0m should be given as 5m.
 * `motor_vehicle`: OpenStreetMap features
 * `operator`: OpenStreetMap features
@@ -1513,6 +1514,36 @@ The `hgv` property indicates general truck heavy goods vehicle truck access, val
 **Roads `hgv_restriction` values:**
 
 For `hgv_restriction` property indicates general truck heavy goods vehicle truck access restrictions, values (units vary) include: `weight` (metric tonnes), `height` (metres), `length` (metres), `width` (metres), `wpa` (weight per axle, in metric tonnes), `kpra` (king pin to rear axle length, in metric tonnes), `hazmat` (true if restricted, otherwise omitted), `axles` (number of axles), `other` and `multiple` if more than one.
+
+#### Road Transportation `hgv_time_restrictions` Values
+Time restriction is a semicolon-delimited array of date and time restrictions,
+where date and time of a restriction are delimited with a pipe `|` character. 
+Note, that restrictions use English names for days and months. For example,
+the restriction "Monday, Tuesday, Friday from 7 to 20; Saturday, Sunday from
+dusk to dawn" is given as follows:
+
+```
+days_of_week Mon,Tue,Fri|start_time25200end_time72000;days_of_week Sat,Sun|dusk_to_dawn
+```
+
+* `days_of_week` - array of weekdays, for example, `days_of_week Mon,Tue,Fri`
+* `date_range` - start and end dates as unix timestamps, for example, `date_range 1546344000 1577880000`
+* `days_of_month` - range of days of month, for example, from 1st until 31st day `days_of_month 1-31`
+* `day_week_month` - range of days of the week of the month, for example, from Monday of the first week until Saturday of the third week - `day_week_month Mon1-Sat3`
+* `day_week_year` - range of days of the week of the year, for example, from Friday of 12th week until Friday of 36th week - `day_week_year Wed12-Fri36`
+* `week_of_month` - range of weeks of the month, for example, from 1st until 4th week of month `week_of_month 1-4`
+* `month_of_year` - range of months of the year, for example, `month_of_year Jan-Jul`
+* `day_month_year` - range of days of months of the year, for example, `day_month_year Jan1-Jul31`
+* `day_week_month_year` - range of days of weeks of months of the year, for example, from 1st Sunday of July until 1 Monday of December `day_week_month_year JulSun1-DecMon1`
+* `externally_specified` - externally specified string value as a raw text, for example, `externally_specified <string-value>`
+* `dusk_to_dawn` - during nighttime
+* `dawn_to_dusk` - during daytime
+* `start_time` - seconds since midnight when the restriction starts, for example,
+  `start_time25200`; if specified, `end_time` must also be specified
+* `end_time` - seconds since mighnight when the restriction ends, for example,
+  `end_time72000`; if specified, `start_time` must also be specified
+* `excluded` - if the restriction is excluded, then the time period specified is the period during which the restriction does not apply,
+for example, `excluded days_of_week Sat,Sun|start_time25200end_time72000`
 
 
 #### Roads layer network values
